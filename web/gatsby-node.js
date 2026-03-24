@@ -45,5 +45,7 @@ async function createProjectPages (graphql, actions, reporter) {
 }
 
 exports.createPages = async ({graphql, actions, reporter}) => {
-  await createProjectPages(graphql, actions, reporter)
+  if (process.env.SKIP_SANITY !== 'true') {
+    await createProjectPages(graphql, actions, reporter)
+  }
 }
