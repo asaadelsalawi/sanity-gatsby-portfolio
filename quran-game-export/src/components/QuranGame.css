@@ -1,0 +1,344 @@
+:root {
+  --color-black: #202123;
+  --color-dark-gray: #32373e;
+  --color-gray: #697a90;
+  --color-light-gray: #b4bcc7;
+  --color-very-light-gray: #e7ebed;
+  --color-white: #fff;
+  --color-accent: #156dff;
+}
+
+.quran-game {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.quran-game__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.quran-game__header h1 {
+  font-size: 1.5rem;
+  line-height: 1.375;
+  margin: 0 0 0.5rem;
+  color: var(--color-black);
+}
+
+.quran-game__header p {
+  color: var(--color-gray);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Mode tabs */
+.quran-game__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.quran-game__tab {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 24px;
+  background: transparent;
+  color: var(--color-accent);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.quran-game__tab:hover {
+  background: rgba(21, 109, 255, 0.08);
+}
+
+.quran-game__tab--active {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* Progress */
+.quran-game__progress {
+  margin-bottom: 2rem;
+}
+
+.quran-game__progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  margin-bottom: 0.5rem;
+}
+
+.quran-game__progress-label strong {
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.quran-game__progress-bar {
+  height: 8px;
+  background: var(--color-very-light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.quran-game__progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* Score bar (quiz) */
+.quran-game__score-bar {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  margin-bottom: 1rem;
+}
+
+.quran-game__score-bar strong {
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+/* Flashcard */
+.quran-game__card-area {
+  perspective: 1200px;
+  margin: 0 auto 1.5rem;
+  max-width: 480px;
+  height: 260px;
+  cursor: pointer;
+}
+
+.quran-game__card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quran-game__card--flipped {
+  transform: rotateY(180deg);
+}
+
+.quran-game__card-face {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--color-very-light-gray);
+  border-radius: 16px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--color-white);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.quran-game__card-back {
+  transform: rotateY(180deg);
+}
+
+.quran-game__arabic {
+  font-size: 3.5rem;
+  line-height: 1.4;
+  direction: rtl;
+  font-family: 'Traditional Arabic', 'Arabic Typesetting', 'Scheherazade New', serif;
+  color: var(--color-black);
+  margin: 0 0 0.5rem;
+}
+
+.quran-game__flip-hint {
+  font-size: 0.875rem;
+  color: var(--color-light-gray);
+  margin: 0;
+}
+
+.quran-game__transliteration {
+  font-size: 1.125rem;
+  color: var(--color-gray);
+  font-style: italic;
+  margin: 0 0 0.5rem;
+}
+
+.quran-game__meaning {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  color: var(--color-black);
+  text-align: center;
+  margin: 0;
+}
+
+.quran-game__arabic-small {
+  font-size: 2rem;
+  direction: rtl;
+  font-family: 'Traditional Arabic', 'Arabic Typesetting', 'Scheherazade New', serif;
+  color: var(--color-gray);
+  margin: 0.75rem 0 0;
+}
+
+/* Flashcard actions */
+.quran-game__flashcard-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.quran-game__btn-knew {
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  background: #22c55e;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.quran-game__btn-knew:hover { opacity: 0.85; }
+
+.quran-game__btn-learning {
+  padding: 0.6rem 1.4rem;
+  border: 2px solid var(--color-light-gray);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-dark-gray);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.quran-game__btn-learning:hover { border-color: var(--color-gray); }
+
+/* Navigation */
+.quran-game__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.quran-game__nav-btn {
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--color-very-light-gray);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-dark-gray);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.quran-game__nav-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+.quran-game__nav-counter {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  min-width: 70px;
+  text-align: center;
+}
+
+/* Quiz */
+.quran-game__quiz-word {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.quran-game__quiz-arabic {
+  font-size: 4rem;
+  line-height: 1.4;
+  direction: rtl;
+  font-family: 'Traditional Arabic', 'Arabic Typesetting', 'Scheherazade New', serif;
+  color: var(--color-black);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.quran-game__quiz-translit {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  font-style: italic;
+}
+
+.quran-game__quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}
+
+.quran-game__option-btn {
+  padding: 0.9rem 1rem;
+  border: 2px solid var(--color-very-light-gray);
+  border-radius: 10px;
+  background: var(--color-white);
+  color: var(--color-dark-gray);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  line-height: 1.3;
+}
+
+.quran-game__option-btn:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.quran-game__option-btn:disabled { cursor: default; }
+
+.quran-game__option-btn--correct {
+  background: #22c55e !important;
+  border-color: #22c55e !important;
+  color: white !important;
+}
+
+.quran-game__option-btn--wrong {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: white !important;
+}
+
+.quran-game__quiz-next {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 0.6rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.quran-game__quiz-next:hover { opacity: 0.85; }
+
+/* Reset */
+.quran-game__reset-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-gray);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.quran-game__reset-btn:hover {
+  color: #ef4444;
+  border-color: #ef4444;
+}
